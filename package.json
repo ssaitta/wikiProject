@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-   "start": "nodemon -e html,js,css /home/redesign-my-mind/1710-GH-NY-Library/wikiProject/app.js",
+    "start": "nodemon -e html,js,css /home/redesign-my-mind/1710-GH-NY-Library/wikiProject/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ssaitta/wikiProject.git"
-
   },
   "author": "",
   "license": "ISC",
@@ -18,13 +17,14 @@
     "url": "https://github.com/ssaitta/wikiProject/issues"
   },
   "homepage": "https://github.com/ssaitta/wikiProject#readme",
-
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "morgan": "^1.9.0",
     "nodemon": "^1.12.1",
     "nunjucks": "^3.0.1",
-    "pg": "^7.4.0"
+    "pg": "^7.4.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.22.6"
   }
 }
