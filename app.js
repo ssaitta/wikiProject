@@ -7,8 +7,8 @@ const morgan = require('morgan');
 const nunjucks = require('nunjucks');
 const bodyParser = require('body-parser');
 const fs = require('fs'); //may or may not need this. may be included in node
-const port = 3000;
 const path = require('path');
+const models = require('./models');
 
 app.engine('html', nunjucks.render); //where do you want to render using a specific template
 app.set('view engine', 'html') //where to find the template and what file exrension the templates have
@@ -24,6 +24,18 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({ extended: true })); // for HTML form submits
 app.use(bodyParser.json()); // would be for AJAX requests
 
-app.listen(port, function (){
-    console.log('server listening')
+app.get('/', function(req, res, next){
+    res.send('wddup it\'s fridayyy!!!')
+
+});
+
+
+
+//syncing app.js with our models
+models.db.sync({})
+.then(function () {
+    app.listen(3000, function () {
+        console.log('Server is listening on port 3000!');
+    });
 })
+.catch(console.error);
