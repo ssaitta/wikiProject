@@ -1,0 +1,28 @@
+{
+  "name": "wikiproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -e html,js,css ./Users/sierrasaitta-zelterman/Desktop/Grace Hopper/Junior/wikiProject/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssaitta/wikiProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssaitta/wikiProject/issues"
+  },
+  "homepage": "https://github.com/ssaitta/wikiProject#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.12.1",
+    "nunjucks": "^3.0.1",
+    "pg": "^7.4.0"
+  }
+}
