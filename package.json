@@ -10,6 +10,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ssaitta/wikiProject.git"
+
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +18,7 @@
     "url": "https://github.com/ssaitta/wikiProject/issues"
   },
   "homepage": "https://github.com/ssaitta/wikiProject#readme",
+
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
