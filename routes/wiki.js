@@ -7,14 +7,48 @@ routes.get('/', function(req, res, next) {
     res.redirect('/');
   });
   
-  routes.post('/', function(req, res, next) {
-    
-    res.send('got to POST /wiki/');
-  });
+  // routes.post('/', function(req, res, next) {
+  //   res.json(req.body.content)
+  //   //res.send('got to POST /wiki/');
+  // });
   
   routes.get('/add', function(req, res, next) {
     res.render('addpage.html');
     //res.send('got to GET /wiki/add');
   });
 
-module.exports = routes
+  var models = require('../models');
+  var Page = models.db.models.page; 
+  var User = models.db.models.user; 
+  
+  console.log(models.db)
+  routes.post('/', function(req, res, next) {
+
+  
+    var page = Page.build({
+      title: req.body.title,
+      content: req.body.content
+    });
+  
+    // STUDENT ASSIGNMENT:
+    // make sure we only redirect *after* our save is complete!
+    // note: `.save` returns a promise or it can take a callback.
+
+    page.save()
+    .then(function (){
+      res.redirect('/wiki')
+    })
+    .catch(function(err){
+      console.log("something went wrong:", err)
+    })
+
+  //res.send('anything')
+
+})
+
+
+
+module.exports = routes;
+
+
+

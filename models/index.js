@@ -17,7 +17,7 @@ const Page = db.define('page', {
         type: Sequelize.STRING, allowNull: false
     },
     urlTitle: {
-        type: Sequelize.STRING, allowNull: false
+        type: Sequelize.STRING, allowNull: true
     },
     content: {
         type: Sequelize.TEXT, allowNull: false
@@ -38,8 +38,6 @@ const Page = db.define('page', {
 )
 
 module.exports = {
-    db: db
-    // Page: Page,
-    // User: User
+    db
 };
 
