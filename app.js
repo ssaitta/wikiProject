@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const fs = require('fs'); //may or may not need this. may be included in node
 const path = require('path');
 const models = require('./models');
+const routes = require('./routes');
 
 app.engine('html', nunjucks.render); //where do you want to render using a specific template
 app.set('view engine', 'html') //where to find the template and what file exrension the templates have
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 // body parsing middleware
 app.use(bodyParser.urlencoded({ extended: true })); // for HTML form submits
 app.use(bodyParser.json()); // would be for AJAX requests
+app.use(routes); //our routes/index.js
 
 app.get('/', function(req, res, next){
     res.send('wddup it\'s fridayyy!!!')
