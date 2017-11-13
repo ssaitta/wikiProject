@@ -17,7 +17,7 @@ const Page = db.define('page', {
         type: Sequelize.STRING, allowNull: false
     },
     urlTitle: {
-        type: Sequelize.STRING, allowNull: false
+        type: Sequelize.STRING, allowNull: true
     },
     content: {
         type: Sequelize.TEXT, allowNull: false
@@ -28,11 +28,14 @@ const Page = db.define('page', {
     date: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW
-    },
+    }},
+    {
+    //options
     getterMethod:{
-        route: function() {return '/wiki/'+ this.urlTitle}
+        route: function() {return ('/wiki/'+ this.urlTitle)}
     }
-});
+    }
+)
 
 module.exports = {
     db: db

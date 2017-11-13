@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -e html,js,css /Users/sierrasaitta-zelterman/Desktop/'Grace Hopper'/Junior/wikiProject/app.js",
+    "start": "nodemon -e html,js,css /home/redesign-my-mind/1710-GH-NY-Library/wikiProject/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

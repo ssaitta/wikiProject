@@ -1,3 +1,5 @@
 node_modules
 package-lock.json
-package.json 
+package.json
+
+//remember to un-ignore package.json if more dependencies are added. 
