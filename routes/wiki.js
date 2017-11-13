@@ -1,49 +1,55 @@
 const express = require('express')
 const routes = express.Router()
+var models = require('../models');
+var Page = models.db.models.page; 
+var User = models.db.models.user; 
+
 
 routes.get('/', function(req, res, next) {
-    //res.send('got to GET /wiki/');
-    //res.render('wikipage')
     res.redirect('/');
-    //res.json()
 });
   
-  // routes.post('/', function(req, res, next) {
-  //   res.json(req.body.content)
-  //   //res.send('got to POST /wiki/');
-  // });
-  
-  routes.get('/add', function(req, res, next) {
-    res.render('addpage.html');
-    //res.send('got to GET /wiki/add');
-  });
+routes.get('/add', function(req, res, next) {
+res.render('addpage.html');
 
-  var models = require('../models');
-  var Page = models.db.models.page; 
-  var User = models.db.models.user; 
-  
+});
 
-  routes.post('/', function(req, res, next) {
+routes.get('/:urlTitle', function(req, res, next) {
 
-  
-    var page = Page.build({
-      title: req.body.title,
-      content: req.body.content
-    });
-  
-    // STUDENT ASSIGNMENT:
-    // make sure we only redirect *after* our save is complete!
-    // note: `.save` returns a promise or it can take a callback.
-
-    page.save()
-    .then(function (data){
-      res.json(data)
+Page.findOne({ 
+    where: { 
+        urlTitle: req.params.urlTitle 
+    } 
     })
-    .catch(function(err){
-      console.log("something went wrong:", err)
+    .then(function(foundPage){
+    res.render('wikipage',foundPage);
     })
+    .catch(next);
 
-  //res.send('anything')
+});
+  
+
+routes.post('/', function(req, res, next) {
+
+
+var page = Page.build({
+    title: req.body.title,
+    content: req.body.content
+});
+
+// STUDENT ASSIGNMENT:
+// make sure we only redirect *after* our save is complete!
+// note: `.save` returns a promise or it can take a callback.
+
+page.save()
+.then(function (data){
+    res.json(data)
+})
+.catch(function(err){
+    console.log("something went wrong:", err)
+})
+
+//res.send('anything')
 
 })
 
