@@ -22,7 +22,8 @@ Page.findOne({
     } 
     })
     .then(function(foundPage){
-    res.render('wikipage',foundPage);
+    res.render('wikipage',{page : foundPage});
+    //res.send(foundPage)
     })
     .catch(next);
 
@@ -43,7 +44,10 @@ var page = Page.build({
 
 page.save()
 .then(function (data){
-    res.json(data)
+    console.log(data)
+    var redirected = data.dataValues.urlTitle
+    console.log(redirected)
+    res.redirect('/wiki/' + redirected)
 })
 .catch(function(err){
     console.log("something went wrong:", err)
