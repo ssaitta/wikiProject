@@ -17,36 +17,34 @@ routes.get('/', function(req, res, next) {
     //res.send('got to GET /wiki/add');
   });
 
-//   var models = require('../models');
-//   var Page = models.db.Page; 
-//   var User = models.db.User; 
+  var models = require('../models');
+  var Page = models.db.models.page; 
+  var User = models.db.models.user; 
   
-//   routes.post('/', function(req, res, next) {
+  console.log(models.db)
+  routes.post('/', function(req, res, next) {
 
   
-//     var page = Page.build({
-//       title: req.body.title,
-//       content: req.body.content
-//     });
+    var page = Page.build({
+      title: req.body.title,
+      content: req.body.content
+    });
   
-//     STUDENT ASSIGNMENT:
-//     make sure we only redirect *after* our save is complete!
-//     note: `.save` returns a promise or it can take a callback.
+    // STUDENT ASSIGNMENT:
+    // make sure we only redirect *after* our save is complete!
+    // note: `.save` returns a promise or it can take a callback.
 
-//     page.save()
-//     .then(function(){
-//       res.send('anything')
-//     })
-//     .then(function (){
-//       res.redirect('/wiki')
-//     })
-//     .catch(function(err){
-//       console.log("something went wrong:", err)
-//     })
+    page.save()
+    .then(function (){
+      res.redirect('/wiki')
+    })
+    .catch(function(err){
+      console.log("something went wrong:", err)
+    })
 
-//   res.send('anything')
+  //res.send('anything')
 
-// })
+})
 
 
 

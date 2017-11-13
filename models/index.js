@@ -38,8 +38,6 @@ const Page = db.define('page', {
 )
 
 module.exports = {
-    db: db
-    // Page: Page,
-    // User: User
+    db
 };
 
