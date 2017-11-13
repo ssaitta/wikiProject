@@ -6,7 +6,13 @@ var User = models.db.models.user;
 
 
 routes.get('/', function(req, res, next) {
-    res.redirect('/');
+    Page.findAll({
+        where : {title : 'Lyssa'}
+    })
+    .then(function (pages){
+        res.render('index', {pages: pages} );
+    })
+    .catch(next)
 });
   
 routes.get('/add', function(req, res, next) {
@@ -44,9 +50,8 @@ var page = Page.build({
 
 page.save()
 .then(function (data){
-    console.log(data)
+    
     var redirected = data.dataValues.urlTitle
-    console.log(redirected)
     res.redirect('/wiki/' + redirected)
 })
 .catch(function(err){

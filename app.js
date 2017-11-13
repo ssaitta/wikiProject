@@ -26,10 +26,6 @@ app.use(bodyParser.urlencoded({ extended: true })); // for HTML form submits
 app.use(bodyParser.json()); // would be for AJAX requests
 app.use(routes); //our routes/index.js
 
-app.get('/', function(req, res, next){
-    res.send('wddup it\'s fridayyy!!!')
-
-});
 
 
 
