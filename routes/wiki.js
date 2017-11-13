@@ -5,7 +5,8 @@ routes.get('/', function(req, res, next) {
     //res.send('got to GET /wiki/');
     //res.render('wikipage')
     res.redirect('/');
-  });
+    //res.json()
+});
   
   // routes.post('/', function(req, res, next) {
   //   res.json(req.body.content)
@@ -21,7 +22,7 @@ routes.get('/', function(req, res, next) {
   var Page = models.db.models.page; 
   var User = models.db.models.user; 
   
-  console.log(models.db)
+
   routes.post('/', function(req, res, next) {
 
   
@@ -35,8 +36,8 @@ routes.get('/', function(req, res, next) {
     // note: `.save` returns a promise or it can take a callback.
 
     page.save()
-    .then(function (){
-      res.redirect('/wiki')
+    .then(function (data){
+      res.json(data)
     })
     .catch(function(err){
       console.log("something went wrong:", err)
