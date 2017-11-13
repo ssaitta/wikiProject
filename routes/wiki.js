@@ -1,8 +1,16 @@
 const express = require('express')
 const routes = express.Router()
 
-//routes.get("/after wiki", function(){})
+routes.get('/', function(req, res, next) {
+    res.send('got to GET /wiki/');
+  });
+  
+  routes.post('/', function(req, res, next) {
+    res.send('got to POST /wiki/');
+  });
+  
+  routes.get('/add', function(req, res, next) {
+    res.send('got to GET /wiki/add');
+  });
 
-module.exports = {
-    routes: routes
-}
+module.exports = routes
