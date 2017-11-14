@@ -1,15 +1,3 @@
 node_modules
 package-lock.json
-<<<<<<< HEAD
-<<<<<<< HEAD
-package.json
 
-//remember to un-ignore package.json if more dependencies are added. 
-=======
-package.json 
->>>>>>> ce1f21dd167781a0f7f699382d6df492928638ee
-=======
-package.json
-
-//remember to un-ignore package.json if more dependencies are added. 
->>>>>>> 2f0f4823d4a9b27d9e123dd25c3503113443ecb7
